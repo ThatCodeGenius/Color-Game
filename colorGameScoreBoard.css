@@ -1,0 +1,64 @@
+.game-status {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  min-width: 30%;
+  padding: 40px;
+  background-color: rgb(252, 174, 174);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 330px;
+}
+
+.score-board-title
+{
+   flex-grow: 1;
+  text-align: center;
+  align-items: center;
+  min-width: 135px;
+  justify-items: center;
+  color: #031b2c;
+  font-weight: 600;
+  text-shadow: 1px 1px 0px rgb(224, 216, 216), -2px -2px 0px 
+  rgb(174, 10, 180), 1px -1px 0px 
+  rgb(4, 38, 110), -1px 1px 0px rgb(125, 29, 145);
+  margin: 0;
+ }
+
+.player-guess,
+.computer-guess,
+.score-decision
+{
+   flex-grow: 1;
+  text-align: center;
+  align-items: center;
+  min-width: 135px;
+  justify-items: center;
+  background-color: aqua;
+  font-weight: 600;
+  padding-top: 20px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
+
+.computer-guess
+{
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.player-guess,
+.score-decision
+{
+  font-size: 30px;
+}
+
+.score-decision{
+  opacity: 1;
+  transition: opacity 2s ease-out; 
+}
+.score-decision.hidden {
+  opacity: 0; 
+}

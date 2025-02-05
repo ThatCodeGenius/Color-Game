@@ -1,0 +1,80 @@
+.container-infinite-scroll{
+  width: 90%;
+  max-width: 1536px;
+  margin-inline: auto;
+  position: relative;
+  height: 50px;
+  margin: 40px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0 )
+  );
+}
+
+@keyframes scrollleft{
+to{
+  left: -200px;
+}
+
+}
+
+.infinite-scroll-object{
+  width: 200px;
+  height: 50px;
+  background-color: #1788d8;
+  border-radius: 6px;
+  position: absolute;
+  left: 100%;
+  animation-name: scrollleft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.infinite-scroll-object-1{
+animation-delay: calc(30s / 6 * (6 - 1) * -1);
+background-color: #c0392b;
+}
+.infinite-scroll-object-2{
+  animation-delay:  calc(30s / 6 * (6 - 2) * -1);
+  background-color: blue;
+}
+.infinite-scroll-object-3{
+  animation-delay:  calc(30s / 6 * (6 - 3) * -1);
+  background-color:green
+}
+.infinite-scroll-object-4{
+  animation-delay:  calc(30s / 6 * (6 - 4) * -1);
+  background-color:yellow
+}
+.infinite-scroll-object-5{
+  animation-delay:  calc(30s / 6 * (6 - 5) * -1);
+  background-color: brown
+}
+.infinite-scroll-object-6{
+  animation-delay:  calc(30s / 6 * (6 - 6) * -1);
+  background-color:purple
+}
+
+/* .infinite-scroll-object-1{
+  animation-delay: -24s
+  }
+  .infinite-scroll-object-2{
+    animation-delay:  -20s
+  }
+  .infinite-scroll-object-3{
+    animation-delay: -15s
+  }
+  .infinite-scroll-object-4{
+    animation-delay: -10s
+  }
+  .infinite-scroll-object-5{
+    animation-delay:  -5s
+  }
+  .infinite-scroll-object-6{
+    animation-delay: -0s
+  }  */

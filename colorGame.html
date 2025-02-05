@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COLOR GAME</title>
+
+  <link rel="stylesheet" href="colorGameScoreBoard.css">
+  <link rel="stylesheet" href="colorGameInfiniteScrollBar.css">
+  <link rel="stylesheet" href="colorGame.css">
+  <link rel="stylesheet" href="colorGame.js">
+</head>
+
+<body>
+
+  <div class="global-container">
+    <div class="game-status">
+      <h1 class="score-board-title">Score Board</h1>
+      <div class="player-guess js-player-guess"></div>
+      <div class="computer-guess js-computer-guess"></div>
+      <div class="score-decision js-score-decision"></div>
+    </div>
+
+    <div class="guess-board-container js-guess-board-container">
+      <div class="container-infinite-scroll">
+        <div class="infinite-scroll-object infinite-scroll-object-1"></div>
+        <div class="infinite-scroll-object infinite-scroll-object-2"></div>
+        <div class="infinite-scroll-object infinite-scroll-object-3"></div>
+        <div class="infinite-scroll-object infinite-scroll-object-4"></div>
+        <div class="infinite-scroll-object infinite-scroll-object-5"></div>
+        <div class="infinite-scroll-object infinite-scroll-object-6"></div>
+      </div>
+
+      <h1 class="gameInstructions">Guess the correct color!</h1>
+
+      <h3 class="button-selected js-button-selected"></h3>
+
+      <div class="colorBox js-colorBox"></div>
+
+      <p class="color-description js-color-description"></p>
+
+      <p class="color-description-theme js-color-description-theme">
+        This section provides a detailed description of each color displayed on the screen, offering insights into their
+        characteristics, significance, and visual impact.
+      </p>
+
+      <div>
+        <button class="colorOption js-colorOption red" data-colorOption-id="Red">Red</button>
+
+        <button class="colorOption js-colorOption blue" data-colorOption-id="Blue">Blue</button>
+
+        <button class="colorOption js-colorOption green" data-colorOption-id="Green">Green</button>
+
+        <button class="colorOption js-colorOption yellow" data-colorOption-id="Yellow">Yellow</button>
+
+        <button class="colorOption js-colorOption brown" data-colorOption-id="Brown">Brown</button>
+
+        <button class="colorOption js-colorOption purple" data-colorOption-id="Purple">Purple</button>
+
+        <button class="newGameButton js-newGameButton">
+          New game</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="colorGame.js"></script>
+</body>
+
+</html>
