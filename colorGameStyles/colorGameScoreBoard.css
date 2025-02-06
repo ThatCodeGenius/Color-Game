@@ -1,13 +1,11 @@
 .game-status {
   display: flex;
   flex-direction: column;
-  width: 20%;
-  min-width: 30%;
-  padding: 40px;
-  background-color: rgb(252, 174, 174);
+  flex-grow: 1;
+  padding: 0 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  height: 330px;
+  margin-left: 5px;
 }
 
 .score-board-title
@@ -36,7 +34,7 @@
   justify-items: center;
   background-color: aqua;
   font-weight: 600;
-  padding-top: 20px;
+  padding-top: 5px;
   box-sizing: border-box;
   border: 2px solid black;
   margin-bottom: 5px;
@@ -52,7 +50,7 @@
 .player-guess,
 .score-decision
 {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .score-decision{
