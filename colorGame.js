@@ -12,12 +12,7 @@
   */
 
 //PAGE LOAD SOUND
-  window.onload = function () {
-    const pageLoadSound = document.querySelector('.page-load-sound');
-    pageLoadSound.play().catch((error) => {
-      console.error('Error playing audio:', error);
-    });
-  }
+  
 
   const DisplayComputerRandomColor = document.querySelector('.js-colorBox');
   const colorOptionButtons = document.querySelectorAll(".js-colorOption");

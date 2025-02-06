@@ -18,7 +18,7 @@
   </audio>
 
   <audio class="js-guessed-wrong-sound" controls preload="auto">
-    <source src="colorGameSounds/game-start-6104.mp3" type="audio/mp3">
+    <source src="colorGameSounds/game-wrong-guess-sound.mp3" type="audio/mp3">
   </audio>
 
   <audio class="js-new-game-sound" controls preload="auto">
@@ -77,8 +77,16 @@
     </div>
   </div>
 
-
+  <script>
+    window.onload = function () {
+      const pageLoadSound = document.querySelector('.page-load-sound');
+      pageLoadSound.play().catch((error) => {
+        console.error('Error playing audio:', error);
+      });
+    }
+  </script>
   <script src="colorGame.js"></script>
+
 </body>
 
 </html>
