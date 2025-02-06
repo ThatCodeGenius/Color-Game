@@ -7,18 +7,33 @@
     // Initialize win and losses counters
     // Compare colors and update the results
     // render the background color of the box to the randomly selected color when targeted colorOptionButton is clicked
-
+// add sounds on win and loss
+add winning animation effect using set timeout at 500
   3. MAKE PAGE INTERACTIVE
   */
-
   
+  const DisplayComputerRandomColor = document.querySelector('.js-colorBox');
   const colorOptionButtons = document.querySelectorAll(".js-colorOption");
-  const scoreDisplay = document.querySelector(".js-score");
   const colorBoxDisplay = document.querySelector(".js-colorBox");
   const colorDescription = document.querySelector('.js-color-description');
   const colorDescriptionTheme = document.querySelector('.js-color-description-theme');
-  const newGameButton = document.querySelector(".js-newGameButton");
- 
+
+  //TARGET BUTTON
+  const buttonSelected = document.querySelector('.js-button-selected');
+
+  // NEW GAME
+  const newGame = document.querySelector('.js-newGameButton');
+    
+  //SCORE BOARD BUTTONS
+  const scoreDisplay = document.querySelector(".js-score");
+  const playerGuess = document.querySelector('.js-player-guess');
+  const computerGuess = document.querySelector('.js-computer-guess');
+  const scoreDecision = document.querySelector('.score-decision');
+
+  //SOUNDS
+  const guessedRightSound = document.querySelector('.js-guessed-right-sound'); 
+  const guessedWrongSound = document.querySelector('.js-guessed-wrong-sound');
+  const newGameSound = document.querySelector('.js-new-game-sound');
 
   let gameScore = {
     win: 0,
@@ -33,34 +48,35 @@ function generateRandomColors() {
 const compareColorsAndAddResult = (computerRandomColor, colorSelected) => { 
     if (colorSelected !== computerRandomColor) {
         gameScore.losses++; 
-        document.querySelector('.score-decision').innerHTML = 'Your guess is wrong';
+        scoreDecision.innerHTML = 'Your guess is wrong';
 
-        document.querySelector('.js-button-selected'). innerHTML = `You chose ${colorSelected} color, Computer chose ${computerRandomColor} color`;
+        buttonSelected. innerHTML = `You chose ${colorSelected} color, Computer chose ${computerRandomColor} color`;
+
+        guessedWrongSound.play();
         
     } else {
         gameScore.win++;  
 
-        document.querySelector('.score-decision').innerHTML = 'You guessed right &#128512';
+        scoreDecision.innerHTML = 'You guessed right &#128512';
         
-        document.querySelector('.js-button-selected'). innerHTML = `You chose ${colorSelected} color, Computer chose ${computerRandomColor} color`;
+       buttonSelected. innerHTML = `You chose ${colorSelected} color, Computer chose ${computerRandomColor} color`;
 
-          // Add 'hidden' class to fade out
-        document.querySelector('.score-decision').classList.add('hidden');
+        scoreDecision.classList.add('hidden');
 
         setTimeout(function() {
-           document.querySelector('.score-decision').classList.remove('hidden');
+           scoreDecision.classList.remove('hidden');
         }, 1000); 
+
+        guessedRightSound.play();
     }
     
-    document.querySelector('.js-player-guess').innerHTML = `You ${ gameScore.win}`;
-    document.querySelector('.js-computer-guess').innerHTML = `Computer ${ gameScore.losses}`;
+    playerGuess.innerHTML = `You ${ gameScore.win}`;
+    computerGuess.innerHTML = `Computer ${ gameScore.losses}`;
 };
 
 const renderComputerColor = (event) => {
     const colorOptionButton = event.target;
     const colorSelected = colorOptionButton.dataset.coloroptionId;
-    
-    const DisplayComputerRandomColor = document.querySelector('.js-colorBox');
     
      const computerRandomColor = generateRandomColors();
 
@@ -101,21 +117,51 @@ colorOptionButtons.forEach((colorOptionButton) => {
     colorOptionButton.addEventListener("click", renderComputerColor);
 });
 
-let newGame = document.querySelector('.js-newGameButton');
-newGame.addEventListener('click', () => {
+
+// newGame.addEventListener('click', () => {
     
-    colorBoxDisplay.style.backgroundColor = '';
-    colorDescription.innerHTML ='';
-    gameScore.win = 0;
-    gameScore.losses = 0;
+//     colorBoxDisplay.style.backgroundColor = '';
+//     colorDescription.innerHTML ='';
+//     gameScore.win = 0;
+//     gameScore.losses = 0;
 
-    document.querySelector('.js-button-selected').innerHTML ='';
-    document.querySelector('.score-decision').innerHTML = '';
-    document.querySelector('.player-guess').innerHTML = '';
-    document.querySelector('.computer-guess').innerHTML = '';
+//     document.querySelector('.js-button-selected').innerHTML ='';
+//     document.querySelector('.score-decision').innerHTML = '';
+//     document.querySelector('.player-guess').innerHTML = '';
+//     document.querySelector('.computer-guess').innerHTML = '';
 
-    colorDescriptionTheme.innerHTML ='This section provides a detailed description of each color displayed on the screen, offering insights into their characteristics, significance, and visual impact.'
+//     if (document.querySelector('.computer-guess').innerHTML === '') {
+//       document.querySelector('.js-new-game-sound').muted = true; 
+//     } else {
+//       document.querySelector('.js-new-game-sound').muted = false;
+//       document.querySelector('.js-new-game-sound').play();
+//     }
+    
+    
+//     colorDescriptionTheme.innerHTML ='This section provides a detailed description of each color displayed on the screen, offering insights into their characteristics, significance, and visual impact.'
 
-  });
+//   });
 
+
+
+
+// Ensure the necessary elements are selected before using them
+// if (newGame && newGameSound && computerGuess && colorBoxDisplay && colorDescription && colorDescriptionTheme) {
+  // New game button click handler
   
+  newGame.addEventListener('click', () => {
+    
+    gameScore.win = 0;  
+    gameScore.losses = 0; 
+    
+    colorBoxDisplay.style.backgroundColor = ''; 
+    colorDescription.innerHTML = '';  
+   
+    buttonSelected.innerHTML = '';
+    scoreDecision.innerHTML = '';
+    playerGuess.innerHTML = '';
+    computerGuess.innerHTML = '';
+
+   
+    colorDescriptionTheme.innerHTML = 'This section provides a detailed description of each color displayed on the screen, offering insights into their characteristics, significance, and visual impact.';
+  });
