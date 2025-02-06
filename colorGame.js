@@ -12,8 +12,14 @@
   */
 
 //PAGE LOAD SOUND
-  
+window.onload = function () {
+  const pageLoadSound = document.querySelector('.page-load-sound');
+  pageLoadSound.play().catch((error) => {
+    console.error('Error playing audio:', error);
+  });
+}
 
+//GUESS BOARD
   const DisplayComputerRandomColor = document.querySelector('.js-colorBox');
   const colorOptionButtons = document.querySelectorAll(".js-colorOption");
   const colorBoxDisplay = document.querySelector(".js-colorBox");
