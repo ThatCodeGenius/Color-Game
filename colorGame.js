@@ -98,22 +98,29 @@ const renderComputerColor = (event) => {
 const renderColorDescription = (computerRandomColor) =>{
      
    if(computerRandomColor ===  "Red"){
-      colorDescription.innerHTML = 'Red is a powerful and emotionally charged color that evokes passion, strength, and energy, while also conveying warmth, tension, and contrast, making it a captivating focal point in any artwork.'
+      colorDescription.innerHTML = 'Red is a bold color symbolizing passion, strength, and energy, creating warmth, tension, and contrast in art.'
+      // 'Red is a powerful and emotionally charged color that evokes passion, strength, and energy, while also conveying warmth, tension, and contrast, making it a captivating focal point in any artwork.'
    } 
    else if(computerRandomColor ===  "Blue"){
-      colorDescription.innerHTML ='Blue is a calm, serene color often associated with tranquility, depth, and stability, evoking feelings of peace and introspection. It spans a wide range from the pale, soft hues of a summer sky to the deep, intense shades of the ocean, each conveying its own unique mood and energy.'
+      colorDescription.innerHTML = 'Blue evokes tranquility, stability, and peace, ranging from soft sky hues to deep ocean shades, each with its own mood.'
+      // 'Blue is a calm, serene color often associated with tranquility, depth, and stability, evoking feelings of peace and introspection. It spans a wide range from the pale, soft hues of a summer sky to the deep, intense shades of the ocean, each conveying its own unique mood and energy.'
    } 
    else if(computerRandomColor ===  "Green"){
-      colorDescription.innerHTML ='Green is a refreshing, rejuvenating color that symbolizes growth, harmony, and nature’s balance, evoking a sense of renewal and vitality. It ranges from soft, calming pastels to rich, vibrant tones, each reflecting the life and abundance of the natural world.'
+      colorDescription.innerHTML = 'Green symbolizes growth, harmony, and renewal, ranging from calming pastels to vibrant tones, reflecting nature"s vitality';
+
+      // 'Green is a refreshing, rejuvenating color that symbolizes growth, harmony, and nature’s balance, evoking a sense of renewal and vitality. It ranges from soft, calming pastels to rich, vibrant tones, each reflecting the life and abundance of the natural world.'
    } 
    else if(computerRandomColor ===  "Yellow"){
-    colorDescription.innerHTML ='Yellow is a bright, energizing color that radiates warmth, optimism, and joy, often symbolizing light and happiness. From soft buttery tones to bold, sunlit shades, yellow invokes creativity and a sense of positivity, lighting up any space or design.'
+    colorDescription.innerHTML = 'Yellow symbolizes warmth, optimism, and joy, evoking creativity and positivity with its bright, energizing tones.'
+    // 'Yellow is a bright, energizing color that radiates warmth, optimism, and joy, often symbolizing light and happiness. From soft buttery tones to bold, sunlit shades, yellow invokes creativity and a sense of positivity, lighting up any space or design.'
    } 
    else if(computerRandomColor ===  "Brown"){
-  colorDescription.innerHTML ='Brown is a grounded, earthy color that exudes warmth, stability, and natural richness, often evoking feelings of comfort and reliability. Its varied tones, from soft sand to deep chestnut, connect us to the organic world, offering a sense of rootedness and strength.'
+  colorDescription.innerHTML = 'Brown symbolizes warmth, stability, and comfort, with earthy tones that evoke reliability and connection to nature.'
+  // 'Brown is a grounded, earthy color that exudes warmth, stability, and natural richness, often evoking feelings of comfort and reliability. Its varied tones, from soft sand to deep chestnut, connect us to the organic world, offering a sense of rootedness and strength.'
    } 
    else if(computerRandomColor ===  "Purple"){
-     colorDescription.innerHTML ='Purple is a luxurious, mystical color that symbolizes creativity, nobility, and spiritual depth, often associated with both mystery and elegance. Ranging from soft lavender to deep violet, it conveys a sense of richness, introspection, and refined beauty.'
+     colorDescription.innerHTML = 'Purple symbolizes creativity, nobility, and spirituality, conveying elegance, mystery, and depth through its rich hues.'
+    //  'Purple is a luxurious, mystical color that symbolizes creativity, nobility, and spiritual depth, often associated with both mystery and elegance. Ranging from soft lavender to deep violet, it conveys a sense of richness, introspection, and refined beauty.'
    } 
 
    if(colorDescription.innerHTML !== ''){
