@@ -33,7 +33,7 @@ body{
 
 .colorBox {
   width: 100%;
-  height: 100px;
+  height: 60px;
   background-color: #dcdcdc; 
   border-radius: 8px;
   margin-bottom:  10px 20px;
@@ -41,11 +41,11 @@ body{
 
 /*ALL GUESS BUTTONS*/
 .colorOption {
-  width: 19%;
+  width: 22%;
   margin: 5px;
   padding: 15px;
-  height: 20%;
-  margin: 0;
+  height: 60px;
+  margin: 1px;
   font-size: 16px;
   background-color: #3498db;
   border: 5px solid rgb(246, 240, 240);
