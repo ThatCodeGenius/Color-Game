@@ -41,10 +41,11 @@ body{
 
 /*ALL GUESS BUTTONS*/
 .colorOption {
-  width: 100px;
+  width: 19%;
   margin: 5px;
   padding: 15px;
-  height: 60px;
+  height: 20%;
+  margin: 0;
   font-size: 16px;
   background-color: #3498db;
   border: 5px solid rgb(246, 240, 240);
@@ -82,9 +83,9 @@ body{
 }
 
 
-@media (max-width: 373px) {
-  h1 {
-    font-size: 4vw;
+@media (max-width: 390px) {
+  .score-board-title {
+    font-size: 13px;
     margin:0 ;
   }
 }
