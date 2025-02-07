@@ -1,150 +1,157 @@
-// STEPS
-  /*
-  1. Get all elements from the DOM into JavaScript
-  2. SAVE COLOR DATA
-    Generate random colors and create color index for computer 
-    Initialize win and losses counters
-    Compare colors and update the results
-    render the background color of the box to the randomly selected color when targeted colorOptionButton is clicked
-     add page load sound as well as right guess and wrong guess
-    add winning animation effect using set timeout at 500
-  3. MAKE PAGE INTERACTIVE
-  */
+/*
+STEPS
+1. SAVE DATA i.e color and color description
+2. GET ALL HTML ELEMENT FROM THE DOM INTO JAVASCRIPT
+i. Guess Board
+ii. Target Button
+iii. New Game Button
+iv. Score Board Buttons
+v. Sounds
+
+3. MAKE PAGE INTERACTIVE
+i. Page Load Sound
+ii. Game Score
+iii. Generate a random color 
+iv. Function to assign random colors to the option buttons, ensuring uniqueness (Randomly assign colors to each button without duplication)
+v. Compare the computer's color with the player's choice ( // Show the score decision again after 1 second)
+vi. Render the description based on the computer's selected color
+vii. Render the computer's randomly selected color and compare with player's choice
+viii. Attach event listeners to each color option button
+ix. Initialize game with random colors for buttons on page load
+x.
+*/
+
 
 //PAGE LOAD SOUND
-window.onload = function () {
-  const pageLoadSound = document.querySelector('.page-load-sound');
-  pageLoadSound.play().catch((error) => {
-    console.error('Error playing audio:', error);
-  });
-}
+  window.onload = function () {
+    const pageLoadSound = document.querySelector('.page-load-sound');
+    pageLoadSound.play().catch((error) => {
+      console.error('Error playing audio:', error);
+    });
+  }
 
-//GUESS BOARD
-  const DisplayComputerRandomColor = document.querySelector('.js-colorBox');
+  // GUESS BOARD
+  const displayComputerRandomColor = document.querySelector('.js-colorBox');
   const colorOptionButtons = document.querySelectorAll(".js-colorOption");
   const colorBoxDisplay = document.querySelector(".js-colorBox");
   const colorDescription = document.querySelector('.js-color-description');
   const colorDescriptionTheme = document.querySelector('.js-color-description-theme');
 
-  //TARGET BUTTON
+  // TARGET BUTTON
   const buttonSelected = document.querySelector('.js-button-selected');
 
   // NEW GAME
   const newGame = document.querySelector('.js-newGameButton');
-    
-  //SCORE BOARD BUTTONS
+
+  // SCORE BOARD BUTTONS
   const scoreDisplay = document.querySelector(".js-score");
   const playerGuess = document.querySelector('.js-player-guess');
   const computerGuess = document.querySelector('.js-computer-guess');
   const scoreDecision = document.querySelector('.score-decision');
 
-  //SOUNDS
-  const guessedRightSound = document.querySelector('.js-guessed-right-sound'); 
+  // SOUNDS
+  const guessedRightSound = document.querySelector('.js-guessed-right-sound');
   const guessedWrongSound = document.querySelector('.js-guessed-wrong-sound');
   const newGameSound = document.querySelector('.js-new-game-sound');
 
-let gameScore = {
+
+  let gameScore = {
     win: 0,
     losses: 0,
   };
 
-function generateRandomColors() {
-    const colors = ["Red", "Blue", "Green", "Yellow", "Brown", "Purple"]; 
+  const colors = ["Red", "Blue", "Green", "Yellow", "Brown", "Purple"]; 
+  
+  function generateRandomColors() {
     return colors[Math.floor(Math.random() * colors.length)];
-}
-
-const compareColorsAndAddResult = (computerRandomColor, colorSelected) => { 
-    if (colorSelected !== computerRandomColor) {
-        gameScore.losses++; 
-        scoreDecision.innerHTML = 'Your guess is wrong';
-
-        buttonSelected. innerHTML = `You chose ${colorSelected} color, Computer chose ${computerRandomColor} color`;
-
-        guessedWrongSound.play();
-        
-    } else {
-        gameScore.win++;  
-
-        scoreDecision.innerHTML = 'You guessed right &#128512';
-        
-       buttonSelected. innerHTML = `You chose ${colorSelected} color, Computer chose ${computerRandomColor} color`;
-
-        scoreDecision.classList.add('hidden');
-
-        setTimeout(function() {
-           scoreDecision.classList.remove('hidden');
-        }, 1000); 
-
-        guessedRightSound.play();
-    }
+  }
+ 
+  function generateRandomOptionColors() {
+    const availableColors = [...colors]; 
+    const usedColors = []; 
     
-    playerGuess.innerHTML = `You ${ gameScore.win}`;
-    computerGuess.innerHTML = `Computer ${ gameScore.losses}`;
-};
+    colorOptionButtons.forEach(colorOptionButton => {
+      const randomIndex = Math.floor(Math.random() * availableColors.length);
+      const color = availableColors.splice(randomIndex, 1)[0]; 
+      colorOptionButton.style.backgroundColor = color; 
+      colorOptionButton.dataset.coloroptionId = color; 
+      usedColors.push(color); 
+    });
+  }
 
-const renderComputerColor = (event) => {
+  // Compare the computer's color with the player's choice ( // Show the score decision again after 1 second)
+  const compareColorsAndAddResult = (computerRandomColor, colorSelected) => {
+    if (colorSelected !== computerRandomColor) {
+      gameScore.losses++;
+      scoreDecision.innerHTML = 'Your guess is wrong';
+      buttonSelected.innerHTML = `You chose ${colorSelected} color, Computer chose ${computerRandomColor} color`;
+      guessedWrongSound.play();
+    } else {
+      gameScore.win++;
+      scoreDecision.innerHTML = 'You guessed right &#128512';
+      buttonSelected.innerHTML = `You chose ${colorSelected} color, Computer chose ${computerRandomColor} color`;
+      scoreDecision.classList.add('hidden');
+
+      setTimeout(() => {
+        scoreDecision.classList.remove('hidden');
+      }, 1000);
+
+      guessedRightSound.play();
+    }
+
+    playerGuess.innerHTML = `You ${gameScore.win}`;
+    computerGuess.innerHTML = `Computer ${gameScore.losses}`;
+  };
+
+  // Render the description based on the computer's selected color
+  const renderColorDescription = (computerRandomColor) => {
+    const colorDescriptions = {
+      Red: 'Red is a bold color symbolizing passion, strength, and energy, creating warmth, tension, and contrast in art.',
+      Blue: 'Blue evokes tranquility, stability, and peace, ranging from soft sky hues to deep ocean shades, each with its own mood.',
+      Green: 'Green symbolizes growth, harmony, and renewal, ranging from calming pastels to vibrant tones, reflecting nature"s vitality.',
+      Yellow: 'Yellow symbolizes warmth, optimism, and joy, evoking creativity and positivity with its bright, energizing tones.',
+      Brown: 'Brown symbolizes warmth, stability, and comfort, with earthy tones that evoke reliability and connection to nature.',
+      Purple: 'Purple symbolizes creativity, nobility, and spirituality, conveying elegance, mystery, and depth through its rich hues.',
+    };
+
+    colorDescription.innerHTML = colorDescriptions[computerRandomColor] || '';
+    colorDescriptionTheme.innerHTML = colorDescription.innerHTML !== '' ? '' : 'This section provides a detailed description of each color displayed on the screen.';
+  };
+
+  // Render the computer's randomly selected color and compare with player's choice
+  const renderComputerColor = (event) => {
     const colorOptionButton = event.target;
     const colorSelected = colorOptionButton.dataset.coloroptionId;
+    const computerRandomColor = generateRandomColors();
     
-     const computerRandomColor = generateRandomColors();
-
-    DisplayComputerRandomColor.style.backgroundColor = computerRandomColor;
-    
-    const colorDescription = renderColorDescription(computerRandomColor);
+    displayComputerRandomColor.style.backgroundColor = computerRandomColor;
+    renderColorDescription(computerRandomColor);
 
     compareColorsAndAddResult(computerRandomColor, colorSelected);
-};
+    generateRandomOptionColors()
+  };
 
-const renderColorDescription = (computerRandomColor) =>{
-     
-   if(computerRandomColor ===  "Red"){
-      colorDescription.innerHTML = 'Red is a bold color symbolizing passion, strength, and energy, creating warmth, tension, and contrast in art.'
-      // 'Red is a powerful and emotionally charged color that evokes passion, strength, and energy, while also conveying warmth, tension, and contrast, making it a captivating focal point in any artwork.'
-   } 
-   else if(computerRandomColor ===  "Blue"){
-      colorDescription.innerHTML = 'Blue evokes tranquility, stability, and peace, ranging from soft sky hues to deep ocean shades, each with its own mood.'
-      // 'Blue is a calm, serene color often associated with tranquility, depth, and stability, evoking feelings of peace and introspection. It spans a wide range from the pale, soft hues of a summer sky to the deep, intense shades of the ocean, each conveying its own unique mood and energy.'
-   } 
-   else if(computerRandomColor ===  "Green"){
-      colorDescription.innerHTML = 'Green symbolizes growth, harmony, and renewal, ranging from calming pastels to vibrant tones, reflecting nature"s vitality';
+  // New Game Logic
+    newGame.addEventListener('click', () => {
+    gameScore.win = 0;
+    gameScore.losses = 0;
 
-      // 'Green is a refreshing, rejuvenating color that symbolizes growth, harmony, and nature’s balance, evoking a sense of renewal and vitality. It ranges from soft, calming pastels to rich, vibrant tones, each reflecting the life and abundance of the natural world.'
-   } 
-   else if(computerRandomColor ===  "Yellow"){
-    colorDescription.innerHTML = 'Yellow symbolizes warmth, optimism, and joy, evoking creativity and positivity with its bright, energizing tones.'
-    // 'Yellow is a bright, energizing color that radiates warmth, optimism, and joy, often symbolizing light and happiness. From soft buttery tones to bold, sunlit shades, yellow invokes creativity and a sense of positivity, lighting up any space or design.'
-   } 
-   else if(computerRandomColor ===  "Brown"){
-  colorDescription.innerHTML = 'Brown symbolizes warmth, stability, and comfort, with earthy tones that evoke reliability and connection to nature.'
-  // 'Brown is a grounded, earthy color that exudes warmth, stability, and natural richness, often evoking feelings of comfort and reliability. Its varied tones, from soft sand to deep chestnut, connect us to the organic world, offering a sense of rootedness and strength.'
-   } 
-   else if(computerRandomColor ===  "Purple"){
-     colorDescription.innerHTML = 'Purple symbolizes creativity, nobility, and spirituality, conveying elegance, mystery, and depth through its rich hues.'
-    //  'Purple is a luxurious, mystical color that symbolizes creativity, nobility, and spiritual depth, often associated with both mystery and elegance. Ranging from soft lavender to deep violet, it conveys a sense of richness, introspection, and refined beauty.'
-   } 
-
-   if(colorDescription.innerHTML !== ''){
-    colorDescriptionTheme.innerHTML =''
-    } 
-};
-  
-colorOptionButtons.forEach((colorOptionButton) => {
-    colorOptionButton.addEventListener("click", renderComputerColor);
-});
-
-newGame.addEventListener('click', () => {
-    
-    gameScore.win = 0;  
-    gameScore.losses = 0; 
-    
-    colorBoxDisplay.style.backgroundColor = ''; 
-    colorDescription.innerHTML = '';  
-   
+    colorBoxDisplay.style.backgroundColor = '';
+    colorDescription.innerHTML = '';
     buttonSelected.innerHTML = '';
     scoreDecision.innerHTML = '';
     playerGuess.innerHTML = '';
     computerGuess.innerHTML = '';
 
-   
     colorDescriptionTheme.innerHTML = 'This section provides a detailed description of each color displayed on the screen, offering insights into their characteristics, significance, and visual impact.';
+
+    generateRandomOptionColors();
   });
+
+  // Attach event listeners to each color option button
+  colorOptionButtons.forEach((colorOptionButton) => {
+    colorOptionButton.addEventListener("click", renderComputerColor);
+  });
+
+  // Initialize game with random colors for buttons on page load
+  generateRandomOptionColors();
