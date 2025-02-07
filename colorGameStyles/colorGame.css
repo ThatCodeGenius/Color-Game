@@ -17,7 +17,9 @@ body{
 }
 
 .gameInstructions{
-  margin: 2 20px
+  margin: 2 20px;
+  font-size: 20px;
+  font-weight: bold;
 }
 .guess-board-container{
   text-align: center;
@@ -39,76 +41,20 @@ body{
 
 /*ALL GUESS BUTTONS*/
 .colorOption {
+  width: 100px;
+  margin: 5px;
   padding: 15px;
+  height: 60px;
   font-size: 16px;
   background-color: #3498db;
-  color: white;
-  border: none;
+  border: 5px solid rgb(246, 240, 240);
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.red{
-  background-color: red;
-}
-.red:hover{
-  background-color: rgb(250, 90, 5);
-}
-.red:active{
-  background-color: rgb(236, 170, 170);
-}
-
-.blue{
-  background-color:blue ;
-}
-.blue:hover{
-  background-color:rgb(5, 90, 250) ;
-}
-.blue:active {
-  background-color:rgb(170, 170, 236) ;
-}
-
-.green{
-  background-color:green 
-}
-.green:hover{
-  background-color:rgb(9, 150, 11)
-}
-.green:active {
-  background-color:rgb(170, 236, 170)
-}
-
-
-.yellow{
-  background-color:rgb(243, 243, 0);
-  color:#c0392b
-}
-.yellow:hover{
-  background-color:rgb(227, 227, 25) 
-}
-.yellow:active {
-  background-color:rgb(191, 188, 15)
-}
-
-.brown{
-  background-color:brown ;
-}
-.brown:hover{
-  background-color:rgb(208, 63, 63) ;
-}
-.brown:active{
-  background-color:rgb(228, 153, 153) ;
-}
-
-.purple{
-  background-color:purple ;
-}
-.purple:hover{
-  background-color:rgb(165, 12, 165) ;
-}
-.purple:active{
-  background-color:rgb(196, 127, 196) ;
+.js-colorOption:hover{
+  background-color: rgb(27, 22, 19);
 }
 
 /*RESET GAME*/
@@ -136,4 +82,9 @@ body{
 }
 
 
-  
+@media (max-width: 373px) {
+  h1 {
+    font-size: 4vw;
+    margin:0 ;
+  }
+}

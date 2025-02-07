@@ -70,11 +70,15 @@ x.
     const availableColors = [...colors]; 
     const usedColors = []; 
     
+
     colorOptionButtons.forEach(colorOptionButton => {
+      
       const randomIndex = Math.floor(Math.random() * availableColors.length);
       const color = availableColors.splice(randomIndex, 1)[0]; 
       colorOptionButton.style.backgroundColor = color; 
       colorOptionButton.dataset.coloroptionId = color; 
+      colorOptionButton.style.opacity = 0.6;
+
       usedColors.push(color); 
     });
   }
@@ -123,7 +127,7 @@ x.
     const colorOptionButton = event.target;
     const colorSelected = colorOptionButton.dataset.coloroptionId;
     const computerRandomColor = generateRandomColors();
-    
+  
     displayComputerRandomColor.style.backgroundColor = computerRandomColor;
     renderColorDescription(computerRandomColor);
 
