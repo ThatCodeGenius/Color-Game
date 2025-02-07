@@ -41,10 +41,10 @@ body{
 
 /*ALL GUESS BUTTONS*/
 .colorOption {
-  width: 22%;
+  width: 28%;
   margin: 5px;
   padding: 15px;
-  height: 60px;
+  height: 80px;
   margin: 1px;
   font-size: 16px;
   background-color: #3498db;
