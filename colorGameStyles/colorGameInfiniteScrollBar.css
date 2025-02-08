@@ -1,4 +1,4 @@
-.container-infinite-scroll{
+/* .container-infinite-scroll{
   width: 90%;
   max-width: 1536px;
   margin-inline: auto;
@@ -60,7 +60,7 @@ background-color: #c0392b;
   background-color:purple
 }
 
-/* .infinite-scroll-object-1{
+.infinite-scroll-object-1{
   animation-delay: -24s
   }
   .infinite-scroll-object-2{
