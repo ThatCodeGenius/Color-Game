@@ -16,23 +16,22 @@
 </head>
 
 <body>
-  <audio class="js-guessed-right-sound data-testid = js-guessed-right-sound" controls preload="auto">
+  <audio class="js-guessed-right-sound" controls preload="auto">
     <source src="colorGameSounds/hit-to-explode-game-104197-[AudioTrimmer.com].mp3" type="audio/mp3">
   </audio>
 
-  <audio class="js-guessed-wrong-sound data-testid = js-guessed-wrong-sound" controls preload="auto">
+  <audio class="js-guessed-wrong-sound" controls preload="auto">
     <source src="colorGameSounds/game-wrong-guess-sound.mp3" type="audio/mp3">
   </audio>
 
-  <audio class="js-new-game-sound data-testid = js-new-game-sound" controls preload="auto">
+  <audio class="js-new-game-sound" controls preload="auto">
     <source src="colorGameSounds/game-over-arcade-6435.mp3" type="audio/mp3">
   </audio>
 
-  <audio class="page-load-sound data-testid = page-load-sound" src="colorGameSounds/game-page-load-music-loop.mp3"
-    preload="auto"></audio>
+  <audio class="page-load-sound" src="colorGameSounds/game-page-load-music-loop.mp3" preload="auto"></audio>
 
-  <div class="global-container data-testid = global-container">
-    <div class="guess-board-container data-testid = guess-board-container">
+  <div class="global-container">
+    <div class="guess-board-container">
       <!-- <div class="container-infinite-scroll">
         <div class="infinite-scroll-object infinite-scroll-object-1"></div>
         <div class="infinite-scroll-object infinite-scroll-object-2"></div>
@@ -42,40 +41,42 @@
         <div class="infinite-scroll-object infinite-scroll-object-6"></div>
       </div> -->
 
-      <p class="gameInstructions data-testid = gameInstructions">Guess the correct color!</p>
+      <p class="gameInstructions" data-testid="gameInstructions">Guess the correct color!</p>
 
       <div class="header">
-        <h1 class="gameStatusTheme data-testid = gameStatusTheme ">Game Status</h1>
-        <div class="score data-testid = score "></div>
-        <div class="gameStatus data-testid = gameStatus"></div>
+        <h1 class="gameStatusTheme">Game Status</h1>
+        <div class="score" data-testid="score "></div>
+        <div class="gameStatus" data-testid="gameStatus"></div>
       </div>
 
-      <h3 class="buttonclicked data-testid = buttonclicked"></h3>
+      <h3 class="buttonclicked"></h3>
 
-      <div class="colorBox data-testid = colorBox"></div>
+      <div class="colorBox" data-testid="colorBox"></div>
 
-      <p class="colorDescription data-testid = colorDescription"></p>
+      <p class="colorDescription"></p>
 
-      <p class="colorDescriptionTheme data-testid = colorDescriptionTheme">
+      <p class="colorDescriptionTheme">
         This section provides a detailed description of each color displayed on the screen, offering insights into their
         characteristics, significance, and visual impact.
       </p>
 
       <!-- colorOptionButtons -->
+
+
       <div>
-        <button class="colorOption data-testid = colorOption data-colorOption-id= Red"></button>
+        <button class="colorOption data-colorOption-id= Red" data-testid="colorOption"></button>
 
-        <button class="colorOption data-testid = colorOption data-colorOption-id= Blue"></button>
+        <button class="colorOption  data-colorOption-id= Blue" data-testid="colorOption"></button>
 
-        <button class="colorOption data-testid = colorOption data-colorOption-id= Green"></button>
+        <button class="colorOption  data-colorOption-id= Green" data-testid="colorOption"></button>
+        "
+        <button class="colorOption  data-colorOption-id= Yellow" data-testid="colorOption"></button>
+        "
+        <button class="colorOption   data-colorOption-id= Brown" data-testid="colorOption"></button>
+        "
+        <button class="colorOption  data-colorOption-id= Purple" data-testid="colorOption"></button>
 
-        <button class="colorOption data-testid = colorOption data-colorOption-id= Yellow"></button>
-
-        <button class="colorOption data-testid = colorOption  data-colorOption-id= Brown"></button>
-
-        <button class="colorOption data-testid = colorOption data-colorOption-id= Purple"></button>
-
-        <button class="newGameButton js-newGameButton data-testid = newGameButton">
+        <button class="newGameButton js-newGameButton" data-testid="newGameButton">
           New game</button>
       </div>
     </div>
